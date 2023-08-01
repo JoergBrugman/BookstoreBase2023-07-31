@@ -2,11 +2,20 @@
 table 50100 "BSB Book"
 {
     Caption = 'Book';
+    DataCaptionFields = "No.", Description;
+    LookupPageId = "BSB Book List";
 
     fields
     {
         field(1; "No."; Code[20]) { NotBlank = true; }
-        field(2; Description; Text[100]) { }
+        field(2; Description; Text[100])
+        {
+            trigger OnValidate()
+            begin
+                if ("Search Description" = UpperCase(xRec.Description)) or ("Search Description" = '') then
+                    "Search Description" := CopyStr(Description, 1, MaxStrLen("Search Description"));
+            end;
+        }
         field(3; "Search Description"; Code[100]) { }
         field(4; Blocked; Boolean) { }
         field(5; Type; Option)
@@ -17,12 +26,10 @@ table 50100 "BSB Book"
         field(7; Created; Date)
         {
             Editable = false;
-            //TODO Automatisch bestücken
         }
         field(8; "Last Date Modified"; Date)
         {
             Editable = false;
-            //TODO Automatisch bestücken
         }
         field(10; Author; Text[50]) { }
         field(11; "Author Provision %"; Decimal)
@@ -31,7 +38,7 @@ table 50100 "BSB Book"
             MinValue = 0;
             MaxValue = 100;
         }
-        field(15; ISBM; Code[20]) { }
+        field(15; ISBN; Code[20]) { }
         field(16; "No. of Pages"; Integer)
         {
             MinValue = 0;
@@ -46,7 +53,39 @@ table 50100 "BSB Book"
     {
         key(PK; "No.") { Clustered = true; }
     }
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", Description, Author, "No. of Pages") { }
+    }
 
-    //TODO Bücher dürfen nicht gelöscht werden
-    //TODO TestBlocked bauen
+    var
+        OnDeleteBookErr: Label 'A Book cannot be deleted';
+
+    trigger OnInsert()
+    begin
+        Created := Today;
+    end;
+
+    trigger OnRename()
+    begin
+        "Last Date Modified" := Today;
+    end;
+
+    trigger OnModify()
+    begin
+        "Last Date Modified" := Today;
+    end;
+
+    trigger OnDelete()
+    begin
+        Error(OnDeleteBookErr);
+    end;
+
+    /// <summary>
+    /// Check if Book is blocked and fire some error
+    /// </summary>
+    procedure TestBlocked()
+    begin
+        TestField(Blocked, false);
+    end;
 }
