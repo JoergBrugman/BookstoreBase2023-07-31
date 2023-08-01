@@ -1,3 +1,4 @@
+// Das ist die Doku zu Table 50100
 table 50100 "BSB Book"
 {
     Caption = 'Book';
