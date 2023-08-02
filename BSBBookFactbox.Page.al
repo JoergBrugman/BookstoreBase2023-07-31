@@ -17,7 +17,7 @@ page 50102 "BSB Book Factbox"
 
                 trigger OnDrillDown()
                 begin
-                    page.RunModal(Page::"BSB Book Card", Rec);
+                    ShowDetails();
                 end;
             }
             field(Description; Rec.Description)
@@ -39,4 +39,9 @@ page 50102 "BSB Book Factbox"
             }
         }
     }
+
+    local procedure ShowDetails()
+    begin
+        Rec.ShowCard();
+    end;
 }

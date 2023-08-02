@@ -88,4 +88,22 @@ table 50100 "BSB Book"
     begin
         TestField(Blocked, false);
     end;
+
+    procedure ShowCard()
+    begin
+        Page.RunModal(Page::"BSB Book Card", Rec);
+    end;
+
+    /// <summary>
+    /// ShowCard.
+    /// </summary>
+    /// <param name="BookNo">Code[20].</param>
+    procedure ShowCard(BookNo: Code[20])
+    var
+        BSBBook: Record "BSB Book";
+    begin
+        if not BSBBook.Get(BookNo) then
+            exit;
+        BSBBook.ShowCard();
+    end;
 }
