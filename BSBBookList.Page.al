@@ -43,6 +43,41 @@ page 50101 "BSB Book List"
             systempart(Links; Links) { ApplicationArea = RecordLinks; }
             systempart(Notes; Notes) { ApplicationArea = Notes; }
         }
+    }
+    actions
+    {
+        area(Promoted)
+        {
+            actionref(CreateBooksRef; CreateBooks) { }
+            actionref(BookSaleRef; BookSale) { }
+        }
+        area(Processing)
+        {
+            action(CreateBooks)
+            {
+                Caption = 'Create Books';
+                Image = CreateDocuments;
+                ApplicationArea = All;
+                ToolTip = 'Executes the Create Books action.';
+                RunObject = codeunit "BSB Create Books";
+            }
+            action(BookSale)
+            {
+                Caption = 'Start Sales Process';
+                Image = Process;
+                ApplicationArea = All;
+                ToolTip = 'Executes the Start Sales Process action.';
 
+                trigger OnAction()
+                var
+                    BSBBookTypeProcessMgmt: Codeunit "BSB Book Type Process Mgmt.";
+                    BSBBookTypeProcess: Interface "BSB Book Type Process";
+                begin
+                    BSBBookTypeProcess := BSBBookTypeProcessMgmt.GetHandler(Rec);
+                    BSBBookTypeProcess.StartDeployBook();
+                    BSBBookTypeProcess.StartDeliverBook();
+                end;
+            }
+        }
     }
 }
