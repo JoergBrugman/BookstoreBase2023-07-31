@@ -78,6 +78,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BSB Book - Field Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4266663845 - Method 4183682721 - NamedType 4073702997" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Information Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BSB Company Info. Wizard Meth - Method AddExtensionAssistedSetup_OnRegisterAssistedSetup - NamedType WizardTitleTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266663845 - Method 4183682721 - NamedType 1608306038" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Provide the Name and E-Mail of your Compamny.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BSB Company Info. Wizard Meth - Method AddExtensionAssistedSetup_OnRegisterAssistedSetup - NamedType WizardDescTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266663845 - Method 1858114840 - NamedType 254384817" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This setup is already done. Do you want to open the setup page instead?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BSB Company Info. Wizard Meth - Method OnReRunOfCompletedSetup - NamedType SetupAlreadyDoneQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 607005014 - NamedType 3202290173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance of customer is lager than the credit limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BSB Notif. Subscriber Store - NamedType CreditLimitNotifDescTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 607005014 - NamedType 2914810102" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer balance exceeds credit limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BSB Notif. Subscriber Store - NamedType CreditLimitNotifTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 607005014 - NamedType 2656007186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 of %3 %4 %5 is lager than %6</source>
+          <note from="Developer" annotates="general" priority="2">"DEU"=%1 %2 of %3 %4 %5 is ist größer als %6</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit BSB Notif. Subscriber Store - NamedType CredLimitNotifMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3524322914 - NamedType 352021770" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do not forgett to enter %1 in %2 %3 %4</source>
           <note from="Developer" annotates="general" priority="2">"DEU"=Bitte vergessen Sie nicht %1 in % %3 %4 anzugeben</note>
